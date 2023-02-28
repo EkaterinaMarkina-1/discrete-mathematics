@@ -1,0 +1,27 @@
+m = 9999999
+v = 5
+g = [[0, 9, 75, 0, 0],
+    [9, 0, 95, 19, 42],
+    [75, 95, 0, 51, 66],
+    [0, 19, 51, 0, 31],
+    [0, 42, 66, 31, 0]]
+
+s = [0, 0, 0, 0, 0]
+no_edge = 0
+s[0] = True
+print("Промежуток : значение ")
+while (no_edge < v - 1):
+   min = m
+   x = 0
+   y = 0
+   for i in range(v):
+       if s[i]:
+           for j in range(v):
+               if ((not s[j]) and g[i][j]):
+                   if min > g[i][j]:
+                       min = g[i][j]
+                       x = i
+                       y = j
+   print(str(x) + "-" + str(y) + ":" + str(g[x][y]))
+   s[y] = True
+   no_edge += 1
